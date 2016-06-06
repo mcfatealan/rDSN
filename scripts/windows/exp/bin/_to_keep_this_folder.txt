@@ -1,0 +1,17 @@
+This folder should contains binary dlls:
+
+dsn.apps.KyotoCabinet.dll
+dsn.apps.LevelDb.dll
+dsn.apps.MemCached.dll
+dsn.apps.ThumbnailServe.dll
+dsn.apps.XLock.dll
+dsn.core.dll
+dsn.layer2.stateful.type1.dll
+dsn.layer2.stateless.dll
+dsn.meta_server.dll
+dsn.replication.simple_kv.module.dll
+dsn.svchost.exe
+redis.dll
+redis-server.exe
+rrdb.dll
+zookeeper_mt.dll

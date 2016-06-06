@@ -43,7 +43,6 @@ for /f "delims=" %%x in (setting.ini) do (set "%%x")
     CALL %bin_dir%\echoc.exe 12 *****TEST [TOOLLETS_TEST] BEGIN***** 
 
     for %%x in (leveldb memcached thumbnail xlock kyotocabinet redis) do (
-    ::for %%x in (redis) do (
         for %%y in (bare tracer profiler fault_injector all) do (
             CALL :layer1 layer1 %%x %2 auto %%y
         )
@@ -55,12 +54,12 @@ for /f "delims=" %%x in (setting.ini) do (set "%%x")
 :all
     CALL %bin_dir%\echoc.exe 12 *****TEST [ALL_TEST] BEGIN***** 
 
-    ::for %%x in (leveldb memcached thumbnail xlock kyotocabinet redis) do (
-    ::    CALL :layer1 layer1 %%x %2 auto
-    ::)
-    ::for %%x in (memcached thumbnail) do (
-    ::    CALL :layer2.stateless layer2.stateless %%x %2 auto
-    ::)
+    for %%x in (leveldb memcached thumbnail xlock kyotocabinet redis) do (
+        CALL :layer1 layer1 %%x %2 auto
+    )
+    for %%x in (memcached thumbnail) do (
+        CALL :layer2.stateless layer2.stateless %%x %2 auto
+    )
     for %%x in (leveldb xlock kyotocabinet redis) do (
         CALL :layer2.stateful layer2.stateful %%x %2 auto
     )
